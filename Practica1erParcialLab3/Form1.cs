@@ -1,6 +1,8 @@
 using Materias_Alumnos;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Practica1erParcialLab3
 {
@@ -21,18 +23,28 @@ namespace Practica1erParcialLab3
             this.Text = "Listado de alumnos";
             lblMostrarMat.Text = "";
             lblMostrarAlum.Text = "";
+            txtMat.Text = "0";
+            txtAlum.Text = "0";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            int i = Convert.ToInt32(txtMat.Text);
-            int j = Convert.ToInt32(txtAlum.Text);
+            if (!string.IsNullOrEmpty(txtMat.Text) && !string.IsNullOrEmpty(txtAlum.Text))
+            {
+                int i = Convert.ToInt32(txtMat.Text);
+                int j = Convert.ToInt32(txtAlum.Text);
 
 
-            Generador g = new Generador();
-            lista = g.GenerarAlumnos(i, j);
-            dgMaterias.AutoGenerateColumns = false;
-            dgMaterias.DataSource = lista;
+                Generador g = new Generador();
+                lista = g.GenerarAlumnos(i, j);
+                dgMaterias.AutoGenerateColumns = false;
+                dgMaterias.DataSource = lista;
+            }
+            else
+            {
+                MessageBox.Show("Complete los campo de Cantidad de materias y alumnos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -94,14 +106,15 @@ namespace Practica1erParcialLab3
 
             foreach (DataGridViewRow row in dgMaterias.Rows)
             {
-                string nombremateria = row.Cells[2].Value.ToString();
+                string nombremateria = row.Cells[0].Value.ToString();
                 if (nombremateria.ToLower().Contains(nombre.ToLower()))
                 {
                     row.Selected = true;
-                    dgMaterias.CurrentCell = row.Cells[2];
+                    dgMaterias.CurrentCell = row.Cells[0];
                     break;
                 }
             }
+            txtBuscar.Text = "";
         }
 
         private void btnBuscarAlum_Click(object sender, EventArgs e)
@@ -132,7 +145,10 @@ namespace Practica1erParcialLab3
                     break;
 
                 }
+
+
             }
+            txtBuscar.Text = "";
         }
         private void txtResultado_TextChanged(object sender, EventArgs e)
         {

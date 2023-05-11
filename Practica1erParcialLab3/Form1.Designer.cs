@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dgAlumnos = new DataGridView();
             alumnoIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             apellidoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -52,6 +53,10 @@
             txtResultado = new TextBox();
             txtMat = new TextBox();
             txtAlum = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgAlumnos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)alumnosBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)materiasBindingSource).BeginInit();
@@ -68,10 +73,20 @@
             dgAlumnos.AllowUserToOrderColumns = true;
             dgAlumnos.AutoGenerateColumns = false;
             dgAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgAlumnos.BackgroundColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgAlumnos.Columns.AddRange(new DataGridViewColumn[] { alumnoIDDataGridViewTextBoxColumn, apellidoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, legajoDataGridViewTextBoxColumn });
             dgAlumnos.DataSource = alumnosBindingSource1;
             dgAlumnos.Dock = DockStyle.Fill;
+            dgAlumnos.GridColor = SystemColors.ActiveCaptionText;
             dgAlumnos.Location = new Point(0, 0);
             dgAlumnos.Name = "dgAlumnos";
             dgAlumnos.RowTemplate.Height = 25;
@@ -127,6 +142,7 @@
             dgMaterias.AllowUserToDeleteRows = false;
             dgMaterias.AllowUserToOrderColumns = true;
             dgMaterias.AutoGenerateColumns = false;
+            dgMaterias.BackgroundColor = SystemColors.ButtonHighlight;
             dgMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgMaterias.Columns.AddRange(new DataGridViewColumn[] { materiaIdDataGridViewTextBoxColumn });
             dgMaterias.DataSource = materiasBindingSource;
@@ -148,12 +164,13 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(30, 33);
+            btnBuscar.BackColor = SystemColors.ActiveCaption;
+            btnBuscar.Location = new Point(40, 33);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(125, 42);
+            btnBuscar.Size = new Size(73, 52);
             btnBuscar.TabIndex = 2;
-            btnBuscar.Text = "Buscar Datos";
-            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Text = "Generar";
+            btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
             // panel1
@@ -209,62 +226,104 @@
             // 
             // btnBusca
             // 
-            btnBusca.Location = new Point(273, 33);
+            btnBusca.BackColor = SystemColors.ActiveCaption;
+            btnBusca.Location = new Point(337, 62);
             btnBusca.Name = "btnBusca";
             btnBusca.Size = new Size(118, 23);
             btnBusca.TabIndex = 9;
             btnBusca.Text = "Buscar Materia:";
-            btnBusca.UseVisualStyleBackColor = true;
+            btnBusca.UseVisualStyleBackColor = false;
             btnBusca.Click += btnBusca_Click;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(409, 45);
+            txtBuscar.Location = new Point(337, 33);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(192, 23);
+            txtBuscar.Size = new Size(236, 23);
             txtBuscar.TabIndex = 10;
             // 
             // btnBuscarAlum
             // 
-            btnBuscarAlum.Location = new Point(273, 62);
+            btnBuscarAlum.BackColor = SystemColors.ActiveCaption;
+            btnBuscarAlum.Location = new Point(461, 62);
             btnBuscarAlum.Name = "btnBuscarAlum";
             btnBuscarAlum.Size = new Size(118, 23);
             btnBuscarAlum.TabIndex = 11;
             btnBuscarAlum.Text = "Buscar Alumno:";
-            btnBuscarAlum.UseVisualStyleBackColor = true;
+            btnBuscarAlum.UseVisualStyleBackColor = false;
             btnBuscarAlum.Click += btnBuscarAlum_Click;
             // 
             // txtResultado
             // 
-            txtResultado.Location = new Point(626, 12);
+            txtResultado.Location = new Point(637, 18);
             txtResultado.Multiline = true;
             txtResultado.Name = "txtResultado";
-            txtResultado.Size = new Size(264, 73);
+            txtResultado.Size = new Size(253, 70);
             txtResultado.TabIndex = 12;
             txtResultado.TextChanged += txtResultado_TextChanged;
             // 
             // txtMat
             // 
-            txtMat.Location = new Point(161, 34);
+            txtMat.Location = new Point(180, 33);
             txtMat.Name = "txtMat";
-            txtMat.Size = new Size(100, 23);
+            txtMat.Size = new Size(72, 23);
             txtMat.TabIndex = 13;
-            txtMat.TextAlign = HorizontalAlignment.Center;
+            txtMat.TextAlign = HorizontalAlignment.Right;
             txtMat.TextChanged += txtMat_TextChanged;
             // 
             // txtAlum
             // 
-            txtAlum.Location = new Point(161, 62);
+            txtAlum.Location = new Point(180, 62);
             txtAlum.Name = "txtAlum";
-            txtAlum.Size = new Size(100, 23);
+            txtAlum.Size = new Size(72, 23);
             txtAlum.TabIndex = 14;
-            txtAlum.TextAlign = HorizontalAlignment.Center;
+            txtAlum.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(637, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Resultado de busqueda:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(337, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(194, 15);
+            label3.TabIndex = 16;
+            label3.Text = "Ingrese Alumno o Materia a buscar:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(122, 36);
+            label4.Name = "label4";
+            label4.Size = new Size(55, 15);
+            label4.TabIndex = 17;
+            label4.Text = "Materias:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(122, 65);
+            label5.Name = "label5";
+            label5.Size = new Size(58, 15);
+            label5.TabIndex = 18;
+            label5.Text = "Alumnos:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1122, 695);
+            ClientSize = new Size(911, 492);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(txtAlum);
             Controls.Add(txtMat);
             Controls.Add(txtResultado);
@@ -317,5 +376,9 @@
         private TextBox txtResultado;
         private TextBox txtMat;
         private TextBox txtAlum;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
